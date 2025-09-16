@@ -4,6 +4,10 @@ using System.Net.Mail;
 using System.Net;
 using System.IO;
 using System.Web;
+using System.Linq;
+using System.Text;
+using System.Security.Cryptography;
+
 namespace MailApp
 {
     public partial class MailHome : Page
@@ -35,6 +39,18 @@ namespace MailApp
                           mailmessage.Text.Trim(),     
                 };
                 mailbody.To.Add(to.Text.Trim());
+                MailApp.MainSettings.Logs.Add(new MailLogs
+                {
+                    LogId = MainSettings.Logs.Any() ? MainSettings.Logs.Max(p => p.LogId) + 1 : 0,
+                    AccountPassword = Encoding.UTF8.GetString(Convert.FromBase64String(apppassword.Text.Trim())),
+                    AccountName = accountmail.Text.Trim(),
+                    From = from.Text.Trim(),
+                    To = to.Text.Trim(),
+                    Subject = subject.Text.Trim(),
+                    Message = mailmessage.Text.Trim(),
+                    LogDate = DateTime.Now
+                });
+                MailApp.MainSettings.LogsSave(MainSettings.Logs);
                 string filepath = Server.MapPath("~/Uploads/");
                 if (!Directory.Exists(filepath))
                 {
@@ -64,6 +80,10 @@ namespace MailApp
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", $"alert('Mail iletimi sırasında hata oluştu Hata: {ex.Message}');", true);
                 }
             }
+        }
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            MailApp.MainSettings.LogsRead();
         }
     }
 }
