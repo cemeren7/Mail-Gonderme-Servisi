@@ -10,3 +10,8 @@ Dikkat Edilmesi Gerekenler
   - Mail hesabınız için 16 haneli uygulama şifresi aktif olmalıdır.
   - .RAR.ZİP.EXE Dosyaları mail tarafına eklenmede desteklenmemektedir.
   - Proje Kesinlikle local host ile yerel pc de çalıştırılmalıdır.(ileriki aşamalarda IIS taraflı yayında yapılacaktır.)
+
+Güncellemeler(16.09.2025)
+
+  - Projede mail gönderilirken gönderen kişinin hesap adı,kriptolu şekilde(şifresi),kimden,kime,başlık,mesaj içerigine dayalı veriler log model oluşturularak json formatında tarih ve saate göre loglandı.(güncel liste halinde)
+  - Tasarımsal olarak iyileştirmeye gidildi.
