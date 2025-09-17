@@ -15,3 +15,8 @@ Güncellemeler(16.09.2025)
 
   - Projede mail gönderilirken gönderen kişinin hesap adı,kriptolu şekilde(şifresi),kimden,kime,başlık,mesaj içerigine dayalı veriler log model oluşturularak json formatında tarih ve saate göre loglandı.(güncel liste halinde)
   - Tasarımsal olarak iyileştirmeye gidildi.
+
+
+Güncellemeler(17.09.2025)
+  - Projede mail gönderim logları json dan farklı olarak local stroge tarafınada dosya isimleri ile loglama eklendi.
+  - Tasarımsal ve js bazlı değişiklikler 
