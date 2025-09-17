@@ -14,9 +14,9 @@ namespace MailApp
     {
         protected  async void Send_Click(object sender, EventArgs e)
         {
-            if (accountmail.Text.Trim() == "" || apppassword.Text.Trim() == "" || from.Text.Trim() == "" || to.Text.Trim() == "")
+            if (accountmail.Text.Trim() == "" || apppassword.Text.Trim() == "" || from.Text.Trim() == "" || to.Text.Trim() == "" || apppassword.Text.Trim().Length<16)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Mail hesab adı,şifresi,kimden,kime alanları boş olamaz');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Mail hesab adı,şifresi,kimden,kime alanları boş olmadıgından ve uygulama şifrenizin 16 haneli oldugundan emin olunuz.');", true);
             }
             else
             {

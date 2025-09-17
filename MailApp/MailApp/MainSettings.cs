@@ -8,7 +8,7 @@ namespace MailApp
 {
     public static class MainSettings
     {
-        public static string jsonPathLog = Path.Combine(HttpContext.Current.Server.MapPath("~/App_Data"), "Logs.json");
+        public static string jsonPathLog = Path.Combine(HttpContext.Current.Server.MapPath("~/App_Data"), "MailLogs.json");
         public static List<MailLogs> Logs = new List<MailLogs>();
         public static void LogsSave(this List<MailLogs> value)
         {
