@@ -413,3 +413,4 @@ C:\Users\Lenovo\Documents\GitHub\Mail-Gonderme-Servisi\MailApp\MailApp\obj\Debug
 C:\Users\Lenovo\Documents\GitHub\Mail-Gonderme-Servisi\MailApp\MailApp\obj\Debug\MailApp.csproj.CopyComplete
 C:\Users\Lenovo\Documents\GitHub\Mail-Gonderme-Servisi\MailApp\MailApp\obj\Debug\MailApp.dll
 C:\Users\Lenovo\Documents\GitHub\Mail-Gonderme-Servisi\MailApp\MailApp\obj\Debug\MailApp.pdb
+C:\Users\Lenovo\Documents\GitHub\Mail-Gonderme-Servisi\MailApp\MailApp\obj\Debug\MailApp.csproj.AssemblyReference.cache
