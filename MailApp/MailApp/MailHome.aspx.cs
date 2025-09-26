@@ -73,7 +73,7 @@ namespace MailApp
                 try
                 {
                     await clientmail.SendMailAsync(mailbody);
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Mail başarılı şekilde iletildi.');", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", $"alert('Mail gönderme işlemi başarılı. Lütfen mail hesabınızı kontrol edin.');", true);
                 }
                 catch (Exception ex)
                 {
