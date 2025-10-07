@@ -6,8 +6,12 @@
     "From": "cemeren660@gmail.com",
     "To": "er7tr1245@gmail.com",
     "Subject": "deneme",
-    "Message": "eewqweqwe",
-    "LogDate": "2025-09-26 09:53:26"
+    "Message": "ggggg",
+    "LogDate": "2025-10-07 10:17:12",
+    "files": [
+      "C:\\Users\\Lenovo\\Documents\\GitHub\\Mail-Gonderme-Servisi\\MailApp\\MailApp\\Uploads\\hesab-önemli.txt",
+      "C:\\Users\\Lenovo\\Documents\\GitHub\\Mail-Gonderme-Servisi\\MailApp\\MailApp\\Uploads\\Mezuniyet-Belgesi.pdf"
+    ]
   },
   {
     "LogId": 1,
@@ -15,9 +19,10 @@
     "AccountPassword": "�gjq֩v�����",
     "From": "cemeren660@gmail.com",
     "To": "er7tr1245@gmail.com",
-    "Subject": "deneme",
-    "Message": "ereetrtrrtrrtet",
-    "LogDate": "2025-09-26 09:54:22"
+    "Subject": "",
+    "Message": "",
+    "LogDate": "2025-10-07 10:26:00",
+    "files": []
   },
   {
     "LogId": 2,
@@ -25,38 +30,9 @@
     "AccountPassword": "�gjq֩v�����",
     "From": "cemeren660@gmail.com",
     "To": "er7tr1245@gmail.com",
-    "Subject": "deneme",
-    "Message": "ssdsdffddfsffdfdsfd",
-    "LogDate": "2025-09-26 09:58:10"
-  },
-  {
-    "LogId": 3,
-    "AccountName": "cemeren660@gmail.com",
-    "AccountPassword": "�gjq֩v�����",
-    "From": "cemeren660@gmail.com",
-    "To": "er7tr1245@gmail.com",
-    "Subject": "deneme",
-    "Message": "jfhfhhhgfhfggfhgfhgfhgfhgffhgfhh",
-    "LogDate": "2025-09-26 10:01:14"
-  },
-  {
-    "LogId": 4,
-    "AccountName": "cemeren660@gmail.com",
-    "AccountPassword": "�gjq֩v�����",
-    "From": "cemeren660@gmail.com",
-    "To": "er7tr1245@gmail.com",
-    "Subject": "deneme",
-    "Message": "hfhgfhfghfhfhgfhgfhfhgfhgfhghgffh",
-    "LogDate": "2025-09-26 10:03:40"
-  },
-  {
-    "LogId": 5,
-    "AccountName": "cemeren660@gmail.com",
-    "AccountPassword": "�gjq֩v�����",
-    "From": "cemeren660@gmail.com",
-    "To": "er7tr1245@gmail.com",
-    "Subject": "deneme",
-    "Message": "sfsfdfdfsfdfssdfdsfdsfdsdssfsfffsfssfdfsf",
-    "LogDate": "2025-09-26 10:06:03"
+    "Subject": "",
+    "Message": "",
+    "LogDate": "2025-10-07 10:26:49",
+    "files": []
   }
 ]

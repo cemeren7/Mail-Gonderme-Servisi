@@ -3,8 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>✉️</title>
+    <meta name="robots" content="noindex, nofollow"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"/>
-    <style>
+    <style type="text/css">
         .plach::placeholder{
             color:seagreen;
         }      
@@ -16,23 +18,33 @@
         body{
             background-image: linear-gradient( 90.5deg,  rgba(112,181,176,1) 1.9%, rgba(220,244,241,1) 87.7% );
         }
+        .input-focus:focus{
+            background-color:mediumseagreen;
+            color:white;
+            transition: all 0.4s ease;
+        }
+        .input-focus:focus::placeholder{
+            color:white;
+            transition: all 0.4s ease;
+        }
+        .hoverme{
+            transition: all 0.4s ease;
+        }
     </style>
 </head>
 <body> 
     <form id="form1" runat="server">
-
         <div class="text-center">
-        <h6 class="text-success mt-3" id="DatetimeValue"></h6>
+        <h6 class="text-success d-inline-block mt-3" id="DatetimeValue"></h6>
         </div>
-        <div class="container w-50 mt-2 bg-light p-4 rounded-4 border border-3 border-success-subtle">
+        <div class="container mt-2 bg-light p-4 rounded-4 border border-3 border-success-subtle" style="width:650px;">
        <div class="text-center">
-      <h5 class="text-success d-inline-block">
+      <h5 class="text-success d-inline-block bg-success text-white rounded-3 p-2">
         Mail Gönderme Servisi
       </h5>
       </div>
       <div class="row mt-3 row-cols-1">
         <!--row-container-->
-
           <div class="col mb-3">
           <!--col-1-->
           <label
@@ -40,7 +52,7 @@
             >Gmail Hesabı</label
           >            
              
-            <asp:TextBox ID="accountmail" runat="server" CssClass="form-control plach mt-1"  Font-Size="Small" TextMode="Email" placeholder="örnek@gmail.com" ClientIDMode="Static"></asp:TextBox>
+            <asp:TextBox ID="accountmail" runat="server" CssClass="form-control plach mt-1 input-focus"  Font-Size="Small" TextMode="Email" placeholder="örnek@gmail.com" ClientIDMode="Static" ></asp:TextBox>
         </div>
 
            <div class="col mb-3">
@@ -49,7 +61,22 @@
             class="form-label font-monospace text-white ps-2 pe-2 bg-success rounded-3"
             >Gmail Uygulama Hesap şifresi</label
           >
-            <asp:TextBox ID="apppassword" runat="server" title="Gmail hesabınızın 16 haneli (uygulama) şifresini içermelidir. Uygulama şifresi olmadan mail gönderme işlemi yapılamaz." CssClass="form-control plach mt-1" TextMode="Password" TabIndex="1"  Font-Size="Small" placeholder="abcdefghijklmnoq"></asp:TextBox>
+           <div class="input-group mt-1">
+            <asp:TextBox 
+                ID="apppassword" 
+                runat="server" 
+                CssClass="form-control input-focus" 
+                TextMode="Password" 
+                TabIndex="1" 
+                Font-Size="Small"
+                placeholder="abcdefghijklmnoq"
+                ClientIDMode="Static"
+                title="Gmail hesabınızın 16 haneli (uygulama) şifresini içermelidir. Uygulama şifresi olmadan mail gönderme işlemi yapılamaz.">
+            </asp:TextBox>
+            <button class="btn btn-outline-secondary hoverme" type="button" id="togglePassword" tabindex="-1">
+                <i class="fa-solid fa-eye"></i>
+            </button>
+     </div>
         </div>
 
         <div class="col  mb-2">
@@ -59,7 +86,7 @@
             >Kimden</label
           >
             
-            <asp:TextBox ID="from" runat="server" CssClass="form-control plach" TabIndex="2"  Font-Size="Small" TextMode="Email" placeholder="örnek@gmail.com" ClientIDMode="Static"></asp:TextBox>
+            <asp:TextBox ID="from" runat="server" CssClass="form-control plach input-focus" TabIndex="2"  Font-Size="Small" TextMode="Email" placeholder="örnek@gmail.com" ClientIDMode="Static"></asp:TextBox>
         </div>
 
         <div class="col mb-3">
@@ -69,7 +96,7 @@
             >Kime</label
           >
             
-           <asp:TextBox ID="to" runat="server" CssClass="form-control plach mt-1" TabIndex="3" Font-Size="Small" TextMode="Email" placeholder="örnek2@gmail.com/örnek2@outlook.com/örnek2@hotmail.com" ClientIDMode="Static"></asp:TextBox>
+           <asp:TextBox ID="to" runat="server" CssClass="form-control plach mt-1 input-focus" TabIndex="3" Font-Size="Small" TextMode="Email" placeholder="örnek2@gmail.com/örnek2@outlook.com/örnek2@hotmail.com" ClientIDMode="Static"></asp:TextBox>
         </div>
 
         <div class="col mb-3">
@@ -78,7 +105,7 @@
             class="form-label font-monospace text-white ps-2 pe-2 bg-success rounded-3"
             >Başlık/Konu</label
           >
-           <asp:TextBox ID="subject" runat="server" CssClass="form-control plach mt-1" TabIndex="4"  Font-Size="Small" placeholder="ders kayıtları" ClientIDMode="Static"></asp:TextBox>
+           <asp:TextBox ID="subject" runat="server" CssClass="form-control plach mt-1 input-focus" TabIndex="4"  Font-Size="Small" placeholder="ders kayıtları" ClientIDMode="Static"></asp:TextBox>
         </div>
       </div>
       <!--row-container-end-->
@@ -102,15 +129,30 @@
           id="textcontrol"      
           ></label
         >
-          <asp:TextBox ID="mailmessage" runat="server" TextMode="MultiLine" CssClass="form-control plach mt-1" Height="50" TabIndex="6" placeholder="Bu bir deneme mail mesajıdır." ClientIDMode="Static"></asp:TextBox>
+          <asp:TextBox ID="mailmessage" runat="server" TextMode="MultiLine" CssClass="form-control plach mt-1 input-focus" Height="50" TabIndex="6" placeholder="Bu bir deneme mail mesajıdır." ClientIDMode="Static"></asp:TextBox>
       </div>
       <!--textarea-end-->
 
       <div class="d-flex justify-content-start mt-3 column-flex">  
-           <asp:Button ID="Send" runat="server" Text="Gönder" CssClass="btn btn-outline-success font-monospace" OnClick="Send_Click" TabIndex="7" ClientIDMode="Static"/>
+          <asp:LinkButton ID="Send" runat="server" CssClass="btn btn-outline-success font-monospace hoverme" OnClick="Send_Click" TabIndex="7" ClientIDMode="Static">
+        <i class="fa-solid fa-paper-plane pe-2"></i> Gönder
+        </asp:LinkButton>
       </div>
             </div>
          <script>
+             document.addEventListener("DOMContentLoaded", function () {
+                 const passwordInput = document.getElementById("<%= apppassword.ClientID %>");
+                 const toggleButton = document.getElementById("togglePassword");
+                 const icon = toggleButton.querySelector("i");
+
+                 toggleButton.addEventListener("click", function () {
+                     const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+                     passwordInput.setAttribute("type", type);
+
+                     icon.classList.toggle("fa-eye");
+                     icon.classList.toggle("fa-eye-slash");
+                 });
+             });
              const mailm = document.querySelector("#mailmessage");
              const btn = document.querySelector("#Send");
              const sb = document.querySelector("#subject");
@@ -120,14 +162,18 @@
              const textval = document.querySelector("#textcontrol");
              const textk = document.querySelector("#mailmessage");
              const file = document.querySelector("#filemail");
-             textk.addEventListener("keyup", () => {
+             const apppas = document.querySelector("#apppassword");
+             textk.addEventListener("keydown", () => {
                  const val = textk.value.trim().length;
                  textval.innerHTML = `Karakter Sayısı: <b>${val}</b>`
              })
              btn.addEventListener("click", () => {
+                 if (accmail.value.trim() == "" || apppas.value.trim() == "" || frm.value.trim() == "" || t.value.trim() == "") {
+                     return;
+                 }
                  const ddd = "Mail Logları"
                  let mailarray = JSON.parse(localStorage.getItem(ddd) || "[]");
-                 const newmailms = { // JS İN OBJECT CREAT
+                 const newmailms = {
                      hesapAd: accmail.value.trim(),
                      Kimden: frm.value.trim(),
                      Kime: t.value.trim(),
@@ -143,17 +189,17 @@
                  localStorage.setItem(ddd, JSON.stringify(mailarray));
              })
              function UpdateTime() {
-                 var date = new Date();
                  const dateval = document.getElementById("DatetimeValue");
                  dateval.style.borderBottom = "1px solid green";
                  dateval.style.display = "inline-block"
                  dateval.style.paddingBottom = "5px";
                  dateval.style.fontWeight = "bold"
-                 dateval.innerText = date.toLocaleString();
+                 dateval.innerText = new Date().toLocaleString();
              }
              setInterval(UpdateTime, 1000);
              UpdateTime();
          </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     </form>
     </body>
 </html>

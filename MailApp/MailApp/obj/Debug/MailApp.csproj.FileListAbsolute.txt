@@ -410,6 +410,6 @@ C:\Users\Lenovo\Documents\GitHub\Mail-Gonderme-Servisi\MailApp\MailApp\bin\ja\De
 C:\Users\Lenovo\Documents\GitHub\Mail-Gonderme-Servisi\MailApp\MailApp\bin\ru\DevExpress.Xpo.v19.1.resources.dll
 C:\Users\Lenovo\Documents\GitHub\Mail-Gonderme-Servisi\MailApp\MailApp\obj\Debug\MailApp.dll.licenses
 C:\Users\Lenovo\Documents\GitHub\Mail-Gonderme-Servisi\MailApp\MailApp\obj\Debug\MailApp.csproj.CoreCompileInputs.cache
-C:\Users\Lenovo\Documents\GitHub\Mail-Gonderme-Servisi\MailApp\MailApp\obj\Debug\MailApp.csproj.CopyComplete
 C:\Users\Lenovo\Documents\GitHub\Mail-Gonderme-Servisi\MailApp\MailApp\obj\Debug\MailApp.dll
 C:\Users\Lenovo\Documents\GitHub\Mail-Gonderme-Servisi\MailApp\MailApp\obj\Debug\MailApp.pdb
+C:\Users\Lenovo\Documents\GitHub\Mail-Gonderme-Servisi\MailApp\MailApp\obj\Debug\MailApp.csproj.CopyComplete

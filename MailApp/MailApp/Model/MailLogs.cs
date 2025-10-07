@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace MailApp
 {
     public class MailLogs
@@ -11,5 +13,6 @@ namespace MailApp
         public string Subject { get; set; }
         public string Message { get; set; }
         public DateTime LogDate { get; set; }
+        public List<string> files  { get; set; }
     }
 }

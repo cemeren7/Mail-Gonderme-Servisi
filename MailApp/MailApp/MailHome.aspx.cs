@@ -6,12 +6,12 @@ using System.IO;
 using System.Web;
 using System.Linq;
 using System.Text;
-using System.Security.Cryptography;
-
+using System.Collections.Generic;
 namespace MailApp
 {
     public partial class MailHome : Page
     {
+        List<string> uploadedFiles = new List<string>();
         protected  async void Send_Click(object sender, EventArgs e)
         {
             if (accountmail.Text.Trim() == "" || apppassword.Text.Trim() == "" || from.Text.Trim() == "" || to.Text.Trim() == "" || apppassword.Text.Trim().Length<16)
@@ -32,25 +32,13 @@ namespace MailApp
                     IsBodyHtml = true,
                     From = new MailAddress(from.Text.Trim()),
                     Subject = subject.Text.Trim(),
-                    Body = @"<p><b style='font-family: Arial, sans-serif;'> Gönderen pc adı: </b>" + Environment.MachineName + "</p>" +
-                          "</br>" +
-                          "<p><b style='font-family: Arial, sans-serif;'> Gönderilen tarih ve saat: </b>" + DateTime.Now + "</p>" +
-                          "</br>" +
-                          mailmessage.Text.Trim(),     
+                    Body = @"<p><b style='font-family: Arial, sans-serif;'> Gönderen cihaz adı: </b>" + Environment.MachineName + "</p>" +
+                            "</br>" +
+                            "<p><b style='font-family: Arial, sans-serif;'> Gönderilen tarih ve saat: </b>" + DateTime.Now + "</p>" +
+                            "</br>" +
+                            mailmessage.Text.Trim(),     
                 };
                 mailbody.To.Add(to.Text.Trim());
-                MailApp.MainSettings.Logs.Add(new MailLogs
-                {
-                    LogId = MainSettings.Logs.Any() ? MainSettings.Logs.Max(p => p.LogId) + 1 : 0,
-                    AccountPassword = Encoding.UTF8.GetString(Convert.FromBase64String(apppassword.Text.Trim())),
-                    AccountName = accountmail.Text.Trim(),
-                    From = from.Text.Trim(),
-                    To = to.Text.Trim(),
-                    Subject = subject.Text.Trim(),
-                    Message = mailmessage.Text.Trim(),
-                    LogDate = DateTime.Now
-                });
-                MailApp.MainSettings.LogsSave(MainSettings.Logs);
                 string filepath = Server.MapPath("~/Uploads/");
                 if (!Directory.Exists(filepath))
                 {
@@ -62,28 +50,41 @@ namespace MailApp
                         {
                             string Filepath = Path.Combine(filepath,Path.GetFileName(uploadedFile.FileName));
                             uploadedFile.SaveAs(Filepath);
-
-                             byte[] files = File.ReadAllBytes(Filepath);
-                             MemoryStream ramfile = new MemoryStream(files);
-                           
+                            byte[] files = File.ReadAllBytes(Filepath);
+                            MemoryStream ramfile = new MemoryStream(files);                
                             Attachment file = new Attachment(ramfile,Path.GetFileName(Filepath));
                             mailbody.Attachments.Add(file);
+                            uploadedFiles.Add(Path.GetFullPath(Filepath));
                         }
                     }
                 try
                 {
                     await clientmail.SendMailAsync(mailbody);
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", $"alert('Mail gönderme işlemi başarılı. Lütfen mail hesabınızı kontrol edin.');", true);
+                    MailApp.MainSettings.Logs.Add(new MailLogs
+                    {
+                        LogId = MainSettings.Logs.Any() ? MainSettings.Logs.Max(p => p.LogId) + 1 : 0,
+                        AccountPassword = Encoding.UTF8.GetString(Convert.FromBase64String(apppassword.Text.Trim())),
+                        AccountName = accountmail.Text.Trim(),
+                        From = from.Text.Trim(),
+                        To = to.Text.Trim(),
+                        Subject = subject.Text.Trim(),
+                        Message = mailmessage.Text.Trim(),
+                        LogDate = DateTime.Now,
+                        files = uploadedFiles,
+                    }) ;
+                    MailApp.MainSettings.LogsSave(MainSettings.Logs);
                 }
                 catch (Exception ex)
                 {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", $"alert('Mail iletimi sırasında hata oluştu Hata: {ex.Message}');", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", $"alert('Mail gönderme işlemi sırasında hata oluştu Hata: {ex.Message}');", true);
+                    return;
                 }
             }
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            MailApp.MainSettings.LogsRead();
+            MailApp.MainSettings.LogsRead();    
         }
     }
 }
